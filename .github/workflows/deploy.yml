@@ -1,0 +1,73 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Resolve site url and base path
+        id: site
+        run: |
+          owner="${GITHUB_REPOSITORY_OWNER}"
+          name="${GITHUB_REPOSITORY#*/}"
+          if [ "${name}" = "${owner}.github.io" ]; then
+            base="/"
+          else
+            base="/${name}"
+          fi
+          echo "url=https://${owner}.github.io" >> "${GITHUB_OUTPUT}"
+          echo "base=${base}" >> "${GITHUB_OUTPUT}"
+          echo "site=${owner}.github.io  base=${base}"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+        env:
+          # 绑定自定义域名后，在仓库 Settings → Secrets and variables → Actions → Variables
+          # 里加 SITE_URL=https://你的域名 即可，无需改代码
+          SITE_URL: ${{ vars.SITE_URL || steps.site.outputs.url }}
+          BASE_PATH: ${{ vars.BASE_PATH || steps.site.outputs.base }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
