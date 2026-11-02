@@ -2,7 +2,7 @@ import type { CommentConfig } from "../types/commentConfig";
 
 export const commentConfig: CommentConfig = {
 	// 评论系统类型: none, twikoo, waline, giscus, disqus, artalk，默认为none，即不启用评论系统
-	type: "none",
+	type: "giscus",
 
 	//twikoo评论系统配置
 	twikoo: {
@@ -52,23 +52,25 @@ export const commentConfig: CommentConfig = {
 	},
 
 	//giscus评论系统配置
+	// 评论区保存在本仓库的 GitHub Discussions 中，无需自建后端
+	// 前置条件：仓库已安装 giscus App（https://github.com/apps/giscus）
 	giscus: {
 		// 设置 Giscus 评论系统仓库
-		repo: "CuteLeaf/Firefly",
+		repo: "vvsq/vvsq.github.io",
 		// 设置 Giscus 评论系统仓库ID
-		repoId: "R_kgD2gfdFGd",
+		repoId: "R_kgDOVgFoIg",
 		// 设置 Giscus 评论系统分类
-		category: "General",
+		category: "Announcements",
 		// 获取 Giscus 评论系统分类ID
-		categoryId: "DIC_kwDOKy9HOc4CegmW",
-		// 获取 Giscus 评论系统映射方式
-		mapping: "title",
+		categoryId: "DIC_kwDOVgFoIs4DKOIu",
+		// 映射方式：pathname 按路径匹配，title 按标题匹配（改标题会丢评论）
+		mapping: "pathname",
 		// 获取 Giscus 评论系统严格模式
 		strict: "0",
 		// 获取 Giscus 评论系统反应功能
 		reactionsEnabled: "1",
 		// 获取 Giscus 评论系统元数据功能
-		emitMetadata: "1",
+		emitMetadata: "0",
 		// 获取 Giscus 评论系统输入位置
 		inputPosition: "top",
 		// 获取 Giscus 评论系统语言

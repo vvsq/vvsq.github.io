@@ -25,130 +25,57 @@ export const booknavPageConfig: BooknavPageConfig = {
 // 每个数组项是一个分类组，分类组内的 items 是该分类下的书签
 export const booknavConfig: BooknavGroup[] = [
 	{
-		id: "dev",
-		name: "开发",
-		icon: "material-symbols:code-rounded",
-		desc: "写代码时离不开的站点",
+		id: "re",
+		name: "逆向与样本分析",
+		icon: "material-symbols:bug-report-outline",
+		desc: "逆向、脱壳与恶意样本分析的常用站点",
 		weight: 100,
 		items: [
 			{
-				title: "GitHub",
-				url: "https://github.com",
-				desc: "全球最大的代码托管平台",
-				// icon 字段可以使用 astro-icon 图标库的图标名称
-				// 也可以使用图片 URL 和本地图片路径
-				// 不填则会通过接口自动获取目标站点的 favicon 图标（需要在上面配置）
-				icon: "fa7-brands:github",
+				title: "看雪论坛",
+				url: "https://bbs.kanxue.com",
+				desc: "国内最大的逆向工程与软件安全社区",
+				// icon 可以填 astro-icon 图标名、图片 URL 或本地图片路径
+				// 不填则通过上面的接口自动抓取目标站点 favicon
 				weight: 10,
 			},
 			{
-				title: "MDN Web Docs",
-				url: "https://developer.mozilla.org",
-				desc: "最权威的 Web 技术文档",
+				title: "吾爱破解",
+				url: "https://www.52pojie.cn",
+				desc: "逆向与破解技术交流社区",
 				weight: 9,
 			},
 			{
-				title: "Astro",
-				url: "https://astro.build",
-				desc: "内容驱动型网站的 Web 框架",
+				title: "VirusTotal",
+				url: "https://www.virustotal.com",
+				desc: "多引擎在线查杀与样本情报",
 				weight: 8,
 			},
 			{
-				title: "Svelte",
-				url: "https://svelte.dev",
-				desc: "把组件编译成高效原生 JS 的框架",
+				title: "微步在线",
+				url: "https://x.threatbook.com",
+				desc: "威胁情报查询与恶意样本分析",
 				weight: 7,
 			},
-			{
-				title: "Tailwind CSS",
-				url: "https://tailwindcss.com",
-				desc: "一个功能强大且灵活的 CSS 框架",
-				weight: 6,
-			},
 		],
 	},
 	{
-		id: "opensource",
-		name: "项目",
-		icon: "material-symbols:code-rounded",
-		desc: "好用的开源项目",
+		id: "ctf",
+		name: "CTF",
+		icon: "material-symbols:flag",
+		desc: "赛事信息与练习平台",
 		weight: 90,
 		items: [
 			{
-				title: "Firefly",
-				url: "https://github.com/CuteLeaf/Firefly",
-				desc: "清晰美观的 Astro 个人博客主题模板",
-				icon: "/favicon/firefly-32.png",
-				weight: 10,
-			},
-		],
-	},
-	{
-		id: "design",
-		name: "设计",
-		icon: "material-symbols:palette-outline-rounded",
-		desc: "配色、图标与灵感来源",
-		weight: 90,
-		items: [
-			{
-				title: "Iconify",
-				url: "https://icon-sets.iconify.design",
-				desc: "海量开源图标集合搜索",
+				title: "CTFtime",
+				url: "https://ctftime.org",
+				desc: "全球 CTF 赛事日历与战队排名",
 				weight: 10,
 			},
 			{
-				title: "iconfont",
-				url: "https://www.iconfont.cn",
-				desc: "阿里巴巴矢量图标库",
-				weight: 9,
-			},
-		],
-	},
-	{
-		id: "tools",
-		name: "工具",
-		icon: "material-symbols:build-outline-rounded",
-		desc: "顺手的在线小工具",
-		weight: 80,
-		items: [
-			{
-				title: "TinyPNG",
-				url: "https://tinypng.com",
-				desc: "在线压缩 PNG / JPEG 图片",
-				weight: 10,
-			},
-			{
-				title: "Squoosh",
-				url: "https://squoosh.app",
-				desc: "Google 出品的图片压缩与格式转换",
-				weight: 9,
-			},
-			{
-				title: "Carbon",
-				url: "https://carbon.now.sh",
-				desc: "把代码片段生成漂亮的图片",
-				weight: 8,
-			},
-		],
-	},
-	{
-		id: "resources",
-		name: "资源",
-		icon: "material-symbols:auto-stories-outline-rounded",
-		desc: "文档、教程与阅读",
-		weight: 70,
-		items: [
-			{
-				title: "Firefly Docs",
-				url: "https://docs-firefly.cuteleaf.cn",
-				desc: "Firefly 主题模板文档",
-				icon: "https://docs-firefly.cuteleaf.cn/logo.png",
-				weight: 10,
-			},
-			{
-				title: "夏夜流萤",
-				url: "https://blog.cuteleaf.cn",
-				desc: "飞萤之火自无梦的长夜亮起",
+				title: "NSSCTF",
+				url: "https://www.nssctf.cn",
+				desc: "在线 CTF 练习平台",
 				weight: 9,
 			},
 		],
