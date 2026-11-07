@@ -32,18 +32,6 @@ export const profileConfig: ProfileConfig = {
 			icon: "fa7-solid:envelope",
 			url: "mailto:3321019568@qq.com",
 			showName: true,
-		},
-		{
-			name: "RSS",
-			icon: "fa7-solid:rss",
-			url: "/rss/",
-			showName: true,
-		},
-		{
-			name: "Atom",
-			icon: "fa7-solid:atom",
-			url: "/atom/",
-			showName: true,
-		},
+		}
 	],
 };
